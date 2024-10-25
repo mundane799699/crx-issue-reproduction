@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Xlike likes for X/Twitter",
+  "version": "1.0.0",
+  "author": {
+    "email": "zfyoung799699@gmail.com"
+  },
+  "description": "Sync and Search your Twitter Likes",
+  "action": {},
+  "background": {
+    "service_worker": "src/background.ts",
+    "type": "module"
+  },
+  "permissions": ["storage", "webRequest"],
+  "host_permissions": ["https://x.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://x.com/*"],
+      "js": ["src/content.ts"],
+      "run_at": "document_start"
+    }
+  ],
+  "options_ui": {
+    "page": "index.html",
+    "open_in_tab": true
+  },
+  "icons": {
+    "16": "public/icon16.png",
+    "32": "public/icon32.png",
+    "48": "public/icon48.png",
+    "128": "public/icon128.png"
+  }
+}
